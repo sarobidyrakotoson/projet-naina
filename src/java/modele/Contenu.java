@@ -6,6 +6,7 @@
 package modele;
 
 import java.sql.Date;
+import java.util.List;
 
 /**
  *
@@ -68,5 +69,11 @@ public class Contenu {
         this.setDescription(desc);
         this.setFichier(fich);
         this.setDatecontenu(d);
+    }
+    
+    public List contenu(){
+        
+        
+        return null;
     }
 }

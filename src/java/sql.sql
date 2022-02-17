@@ -8,12 +8,12 @@
  * Created: 17 févr. 2022
  */
 create table typecontenu(
-id varchar(40),
+id varchar(40) primary key,
 nom varchar(20)
 );
 
 create table utilisateur(
-id varchar(40),
+id varchar(40) primary key,
 nom varchar(40),
 email varchar(30),
 mdp varchar(40),
@@ -21,7 +21,7 @@ isResponsable int
 );
 
 create table contenu (
-id varchar(40),
+id varchar(40) primary key,
 typecontenuid varchar(40),
 titre varchar(20),
 description text,
