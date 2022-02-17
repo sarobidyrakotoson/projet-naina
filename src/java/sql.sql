@@ -12,6 +12,10 @@ id varchar(40) primary key,
 nom varchar(20)
 );
 
+insert into typecontenu values(1,'annonce');
+insert into utilisateur values(1,'jean','rakoto@gmail.com','mdp',1);
+
+
 create table utilisateur(
 id varchar(40) primary key,
 nom varchar(40),
@@ -29,7 +33,7 @@ fichier varchar(40),
 datecontenu date,
 foreign key (typecontenuid) references tycontenu(id)
 );
-
+insert into contenu values (1,1,'contenu','description','fichier','2022-2-12');
 create table contenuUtilisateur(
 contenuid varchar(10),
 utilisateurid varchar(10)

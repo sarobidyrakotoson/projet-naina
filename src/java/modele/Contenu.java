@@ -6,13 +6,14 @@
 package modele;
 
 import java.sql.Date;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
  *
  * @author Aroniaina Saotra
  */
-public class Contenu {
+public class Contenu extends DBTable{
     String id;
     String typecontenuid;
     String titre;
@@ -71,9 +72,13 @@ public class Contenu {
         this.setDatecontenu(d);
     }
     
-    public List contenu(){
+    public List contenu() throws Exception{
         
-        
-        return null;
+        List l = new ArrayList();
+        DBTable[] db = this.find(this, Connexion.getConnection());
+        for(int i = 0;i<db.length;i++){
+            l.add((Contenu)db[i]);
+        }
+        return l;
     }
 }
