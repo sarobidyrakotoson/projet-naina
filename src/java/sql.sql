@@ -34,6 +34,9 @@ create table contenuUtilisateur(
 contenuid varchar(10),
 utilisateurid varchar(10)
 );
-)
+
+create sequence contenu_seq start 1 increment 1;
+create sequence utilisateur_seq start 1 increment 1;
+create sequence typecontenu_seq start 1 increment 1;
 
 
