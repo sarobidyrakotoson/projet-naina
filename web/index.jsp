@@ -67,7 +67,7 @@
                                 <div class="col-md-6">
                                     <h1 class="booking_text">Connexion</h1>
                                     <div class="contact_bg">
-                                        <form action="index2.jsp">
+                                        <form action="listeContenu.do">
                                         <div class="input_main">
                                             <div class="container">
                                                 <h2 class="request_text"></h2>

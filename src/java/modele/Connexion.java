@@ -19,7 +19,7 @@ import java.sql.SQLException;
  * @author ASUS
  */
 public class Connexion {
-    private final static String URL = "jdbc:postgresql://localhost/contenu" ;
+    private final static String URL = "jdbc:postgresql://localhost:5432/contenu" ;
     private final static String USER = "postgres" ;
     private final static String PASSWORD = "sarobidy" ;
     public static Connection getConnection()throws Exception

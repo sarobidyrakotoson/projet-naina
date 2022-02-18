@@ -1,6 +1,8 @@
 
 import java.util.List;
+import modele.Connexion;
 import modele.Contenu;
+import modele.DBTable;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -18,12 +20,9 @@ public class Test {
      * @param args the command line arguments
      */
     public static void main(String[] args) throws Exception {
-        Contenu c = new Contenu();
-        List l = c.contenu();
-        for(int i = 0;i<l.size();i++){
-            c = (Contenu) l.get(i);
-            System.out.println(c.getTitre());
-        }
+        DBTable d = new DBTable();
+            //System.out.println(d.id(Connexion.getConnection(), "var"));
+        
     }
     
 }

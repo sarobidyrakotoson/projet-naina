@@ -1,3 +1,5 @@
+<%@page import="modele.Contenu"%>
+<%@page import="java.util.List"%>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -68,7 +70,7 @@
                         <div class="carousel-item active">
                             <div class="row">
                                 <div class="col-md-6">
-                                    
+
                                     <div class="image_1"></div>
                                 </div>
                                 <div class="col-md-6">
@@ -82,7 +84,7 @@
                                                         <input type="date" class="email-bt" style="width: 200px" name="date1"><br> 
                                                         <input type="date" class="email-bt" style="width: 200px" name="date2">
                                                     </div>
-                                                   
+
                                                     <div class="form-group">
                                                         <input type="text" class="email-bt" placeholder="Type" style="width: 200px" name="type">
                                                     </div>
@@ -97,39 +99,44 @@
                         <div class="carousel-item">
                             <div class="row">
                                 <div class="col-md-6">
-                                    
+
                                     <div class="image_1"></div>
                                 </div>
                                 <div class="col-md-6">
                                     <h1 class="booking_text">Ajouter un nouveau contenu</h1>
                                     <div class="contact_bg">
-                                         <form action="/action_page.php">
-                                        <div class="input_main">
-                                            <div class="container">
-                                                <h2 class="request_text"></h2>
-                                               
+                                        <form action="insertContenu.do" method="post" enctype="multipart/form-data">
+                                            <div class="input_main">
+                                                <div class="container">
+                                                    <h2 class="request_text"></h2>
+
                                                     <div class="form-group">
-                                                        <input type="test" class="email-bt" placeholder="Type" style="width: 400px" name="date">
+                                                        <input type="radio" style="width: 30px" value="1" name="contenu.typecontenuid">Annonce
+                                                        <input type="radio" style="width: 30px" value="2" name="contenu.typecontenuid">Note interne
+                                                        <input type="radio" style="width: 30px" value="3" name="contenu.typecontenuid">Rapport de mission
+                                                        <input type="radio" style="width: 30px" value="4" name="contenu.typecontenuid">Reunion
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <input type="text" class="email-bt" placeholder="Titre" style="width: 400px" name="contenu.titre">
                                                     </div>
                                                     <div class="form-group">
-                                                        <input type="date" class="email-bt" style="width: 400px" name="date">
+                                                        <input type="text" class="email-bt" placeholder="Description" style="width: 400px"  name="contenu.description">
                                                     </div>
                                                     <div class="form-group">
-                                                        <input type="text" class="email-bt" placeholder="Titre" style="width: 400px" name="titre">
+                                                        <input type="file" style="width: 400px" name="contenu.fichier">
+                                                        <input type="hidden" style="width: 400px" name="contenu.fichier1">
                                                     </div>
-                                                    <div class="form-group">
-                                                        <input type="text" class="email-bt" placeholder="Description"style="width: 400px"  name="desc">
-                                                    </div>
-                                                
-                                            </div> 
-                                        </div>
-                                        <div class="send_bt"><a href="#">AJOUTER</a></div>
+
+                                                </div> 
+                                            </div>
+                                            <div class="send_bt"><a href="#"><button>AJOUTER</button></a></div>
                                         </form>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        
+
                     </div>
                     <a class="carousel-control-prev" href="#main_slider" role="button" data-slide="prev">
                         <i class="fa fa-angle-left"></i></a>
@@ -190,54 +197,36 @@
             </div>
         </div>
         <div class="ride_section_2 layout_padding">
+            <% List l = (List) request.getAttribute("liste"); %>
+            <% for (int i = 0; i < l.size(); i++) {
+                    Contenu c = (Contenu) l.get(i);
+            %>
+            <% if (i % 2 != 0) {%>
             <div class="container">
                 <div class="row">
                     <div class="col-sm-4">
-                        <div class="image_3"><img src="images/rapport.png"></div>
+                        <div class="image_3"><img src="images/<% out.println(c.getTypecontenuid()); %>.png"></div>
                     </div>
                     <div class="col-sm-8">
-                        <h1 class="cabe_text">Uloax for Every Pocket</h1>
-                        <p class="long_text">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as It is a long established fact that a reader will be distracted by the readable c</p>
-                        <div class="book_bt"><a href="#">BOOK NOW</a></div>
+                        <h1 class="cabe_text"><% out.println(c.getTitre()); %></h1>
+                        <p class="long_text"><% out.println(c.getDescription()); %></p>
+                        <div class="book_bt"><a href="#"><% out.println(c.getFichier()); %></a></div>
                     </div>
                 </div>
-            </div>
+            </div><% } %><% if (i % 2 == 0) {%>
             <div class="container">
                 <div class="row">
                     <div class="col-sm-8">
-                        <h1 class="secure_text">Secure and Safer Rides</h1>
-                        <p class="long_text_2">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as It is a long established fact that a reader will be distracted by the readable c</p>
-                        <div class="book_bt_2"><a href="#">BOOK NOW</a></div>
+                        <h1 class="cabe_text"><% out.println(c.getTitre()); %></h1>
+                        <p class="long_text"><% out.println(c.getDescription()); %></p>
+                        <div class="book_bt"><a href="#"><% out.println(c.getFichier()); %></a></div>
                     </div>
                     <div class="col-sm-4">
-                        <div class="image_3"><img src="images/annonce.png"></div>
+                        <div class="image_3"><img src="images/<% out.println(c.getTypecontenuid()); %>.png"></div>
                     </div>
                 </div>
-            </div>
-            <div class="container">
-                <div class="row">
-                    <div class="col-sm-4">
-                        <div class="image_3"><img src="images/note.png"></div>
-                    </div>
-                    <div class="col-sm-8">
-                        <h1 class="cabe_text">Uloax for Every Pocket</h1>
-                        <p class="long_text">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as It is a long established fact that a reader will be distracted by the readable c</p>
-                        <div class="book_bt"><a href="#">BOOK NOW</a></div>
-                    </div>
-                </div>
-            </div>
-            <div class="container">
-                <div class="row">
-                    <div class="col-sm-8">
-                        <h1 class="secure_text">Secure and Safer Rides</h1>
-                        <p class="long_text_2">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as It is a long established fact that a reader will be distracted by the readable c</p>
-                        <div class="book_bt_2"><a href="#">BOOK NOW</a></div>
-                    </div>
-                    <div class="col-sm-4">
-                        <div class="image_3"><img src="images/reunion.jpg"></div>
-                    </div>
-                </div>
-            </div>
+            </div><% } %>
+            <% }%>
         </div>
         <!-- why ride section end -->
 
@@ -261,20 +250,20 @@
         <script src="js/owl.carousel.js"></script>
         <script src="https:cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
         <script>
-                        $(document).ready(function () {
-                            $(".fancybox").fancybox({
-                                openEffect: "none",
-                                closeEffect: "none"
-                            });
+                                    $(document).ready(function () {
+                                        $(".fancybox").fancybox({
+                                            openEffect: "none",
+                                            closeEffect: "none"
+                                        });
 
-                            $(".zoom").hover(function () {
+                                        $(".zoom").hover(function () {
 
-                                $(this).addClass('transition');
-                            }, function () {
+                                            $(this).addClass('transition');
+                                        }, function () {
 
-                                $(this).removeClass('transition');
-                            });
-                        });
+                                            $(this).removeClass('transition');
+                                        });
+                                    });
         </script> 
         <script>
             function openNav() {

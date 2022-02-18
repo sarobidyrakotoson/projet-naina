@@ -81,4 +81,9 @@ public class Contenu extends DBTable{
         }
         return l;
     }
+    
+    
+    public void insertContenu() throws Exception{
+        this.insertInto(Connexion.getConnection());
+    }
 }

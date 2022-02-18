@@ -12,7 +12,7 @@ id varchar(40) primary key,
 nom varchar(20)
 );
 
-insert into typecontenu values(1,'annonce');
+insert into typecontenu values(1,'annonce'),(2,'note interne'),(3,'Rapport de mission'),(4,'reunion');
 insert into utilisateur values(1,'jean','rakoto@gmail.com','mdp',1);
 
 
@@ -33,7 +33,8 @@ fichier varchar(40),
 datecontenu date,
 foreign key (typecontenuid) references tycontenu(id)
 );
-insert into contenu values (1,1,'contenu','description','fichier','2022-2-12');
+insert into contenu values (nextval('contenu_seq'),1,'contenu','description','fichier','2022-2-12');
+insert into contenu values (nextval('contenu_seq'),4,'reunion','description description','fichier','2022-2-14');
 create table contenuUtilisateur(
 contenuid varchar(10),
 utilisateurid varchar(10)
@@ -42,5 +43,7 @@ utilisateurid varchar(10)
 create sequence contenu_seq start 1 increment 1;
 create sequence utilisateur_seq start 1 increment 1;
 create sequence typecontenu_seq start 1 increment 1;
+
+create sequence var_seq start 1 increment 1;
 
 

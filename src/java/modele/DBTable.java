@@ -388,4 +388,15 @@ public class DBTable
             e.printStackTrace();
         }
     }
+    public String id(Connection c) throws SQLException{
+        String nom=getClass().getSimpleName();
+        String id = "";
+        java.sql.Statement stmt=c.createStatement();
+            ResultSet res=stmt.executeQuery("select nextval('"+nom+"_seq') as id");
+            while(res.next())
+            {
+               id = res.getString(1);
+            }
+            return id;
+    }
 }
