@@ -33,6 +33,8 @@ fichier varchar(40),
 datecontenu date,
 foreign key (typecontenuid) references tycontenu(id)
 );
+
+*****idutilisateur
 insert into contenu values (nextval('contenu_seq'),1,'contenu','description','fichier','2022-2-12');
 insert into contenu values (nextval('contenu_seq'),4,'reunion','description description','fichier','2022-2-14');
 

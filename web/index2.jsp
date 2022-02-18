@@ -105,7 +105,7 @@
                                 <div class="col-md-6">
                                     <h1 class="booking_text">Ajouter un nouveau contenu</h1>
                                     <div class="contact_bg">
-                                        <form action="insertContenu.do" method="post" enctype="multipart/form-data">
+                                        <form action="insertContenu.do" method="get" enctype="multipart/form-data">
                                             <div class="input_main">
                                                 <div class="container">
                                                     <h2 class="request_text"></h2>
@@ -124,8 +124,8 @@
                                                         <input type="text" class="email-bt" placeholder="Description" style="width: 400px"  name="contenu.description">
                                                     </div>
                                                     <div class="form-group">
-                                                        <input type="file" style="width: 400px" name="contenu.fichier">
                                                         <input type="hidden" style="width: 400px" name="contenu.fichier1">
+                                                        <input type="file" style="width: 400px" name="contenu.fichier">
                                                     </div>
 
                                                 </div> 

@@ -63,14 +63,26 @@ public class Utilisateur extends DBTable{
         this.setIsResponsable(Integer.valueOf(String.valueOf(is)));
     }
     
-    public List typecontenu() throws Exception{
+    public List responsable() throws Exception{
         
         List l = new ArrayList();
+        this.setIsResponsable(1);
         DBTable[] db = this.find(this, Connexion.getConnection());
         for(int i = 0;i<db.length;i++){
             l.add((Utilisateur)db[i]);
         }
         return l;
     }
-            
+    
+    
+     public List employe() throws Exception{
+        
+        List l = new ArrayList();
+        this.setIsResponsable(0);
+        DBTable[] db = this.find(this, Connexion.getConnection());
+        for(int i = 0;i<db.length;i++){
+            l.add((Utilisateur)db[i]);
+        }
+        return l;
+    }       
 }
