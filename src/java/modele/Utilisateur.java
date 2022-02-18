@@ -85,4 +85,9 @@ public class Utilisateur extends DBTable{
         }
         return l;
     }       
+     
+     public Utilisateur login() throws Exception{
+         DBTable[] db = this.find(this, Connexion.getConnection());
+         return (Utilisateur)db  [0];
+     }
 }

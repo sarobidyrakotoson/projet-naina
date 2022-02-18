@@ -50,3 +50,5 @@ create sequence typecontenu_seq start 1 increment 1;
 create sequence var_seq start 1 increment 1;
 
 
+contenuperso:
+select  * from contenu where id in( select contenuid from contenu utilisateur where utilisateurid =  )

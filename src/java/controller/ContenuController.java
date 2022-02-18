@@ -54,6 +54,10 @@ public class ContenuController {
         this.getContenu().setId(c.id(Connexion.getConnection()));
         c = this.getContenu();
         c.insertContenu();
+        System.out.println(this.getContenu().getDescription());
+        System.out.println(this.getContenu().getFichier());
+        System.out.println(this.getContenu().getTitre());
+        System.out.println(this.getContenu().getTypecontenuid());
         String page = "index2.jsp";
         m.setPage(page);
         m.setHash(h);
