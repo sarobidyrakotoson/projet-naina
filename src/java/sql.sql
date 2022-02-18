@@ -35,6 +35,7 @@ foreign key (typecontenuid) references tycontenu(id)
 );
 insert into contenu values (nextval('contenu_seq'),1,'contenu','description','fichier','2022-2-12');
 insert into contenu values (nextval('contenu_seq'),4,'reunion','description description','fichier','2022-2-14');
+
 create table contenuUtilisateur(
 contenuid varchar(10),
 utilisateurid varchar(10)
