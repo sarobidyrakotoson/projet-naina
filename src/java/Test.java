@@ -24,8 +24,11 @@ public class Test {
     public static void main(String[] args) throws Exception {
         
         Contenu c = new Contenu();
-        
-        List l = c.recherche(un, Date.valueOf(LocalDate.now()), "reunion");
+        List l = c.recherche("2022-1-21", "2022-3-1", "reunion");
+        for(int i = 0;i<l.size();i++){
+            c = (Contenu) l.get(i);
+            System.out.println(c.getTitre());
+        }
     }
     
 }

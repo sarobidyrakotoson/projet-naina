@@ -12,9 +12,9 @@ import java.sql.Date;
  * @author Aroniaina Saotra
  */
 public class Critere {
-    Date un;
-    Date deux;
-    String idtype;
+    String un;
+    String deux;
+    //String idtype;
    // String utilisateurid;
     String keyword;
     
@@ -25,25 +25,25 @@ public class Critere {
         this.keyword = n;
     }
     
-    public Date getUn(){
+    public String getUn(){
         return this.un;
     }
-    public void setUn(Date d){
+    public void setUn(String d){
         this.un = d;
     }
     
-    public Date getDeux(){
+    public String getDeux(){
         return this.deux;
     }
     
-    public void setDeux(Date d){
+    public void setDeux(String d){
         this.deux = d;
     }
-    
+    /*
     public String getIdtype(){
         return this.idtype;
     }
     public void setIdtype(String n){
         this.idtype = n;
-    }
+    }*/
 }

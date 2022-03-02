@@ -87,7 +87,7 @@ public class Contenu extends DBTable{
     }
     
     
-    public List recherche(Date un,Date deux,String keyword) throws Exception{
+    public List recherche(String un,String deux,String keyword) throws Exception{
         List l = new ArrayList();
         DBTable[] db = this.findAvecFinal(this, " where titre like '%"+keyword+"%' or description like '%"+keyword+"%' and datecontenu between '"+un+"' and '"+deux+"'", Connexion.getConnection());
         for(int i = 0;i<db.length;i++){
