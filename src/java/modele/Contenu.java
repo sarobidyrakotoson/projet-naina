@@ -74,7 +74,7 @@ public class Contenu extends DBTable{
     
     public List contenu() throws Exception{
         List l = new ArrayList();
-        DBTable[] db = this.find(this, Connexion.getConnection());
+        DBTable[] db = this.findAvecFinal(this, " order by datecontenu desc", Connexion.getConnection());
         for(int i = 0;i<db.length;i++){
             l.add((Contenu)db[i]);
         }

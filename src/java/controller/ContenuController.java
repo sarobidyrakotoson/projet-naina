@@ -54,6 +54,11 @@ public class ContenuController {
     public ModeleView insert(HttpServletRequest hr) throws Exception{
         ModeleView m = new ModeleView();
         Contenu c = new Contenu();
+        Date d = Date.valueOf(LocalDate.now());
+        this.getContenu().setDatecontenu(d);
+        this.getContenu().setId(c.id(Connexion.getConnection()));
+        System.out.println(this.getContenu().getId());
+        this.getContenu().insertContenu();
         List li = c.contenu();
         TypeContenu tc = new TypeContenu();
         List list = tc.typecontenu();
@@ -62,11 +67,6 @@ public class ContenuController {
         l.add(list);
         HashMap<String, Object> hm = new HashMap<String, Object>();
         hm.put("liste", l);
-        Date d = Date.valueOf(LocalDate.now());
-        this.getContenu().setDatecontenu(d);
-        this.getContenu().setId(c.id(Connexion.getConnection()));
-        System.out.println(this.getContenu().getId());
-        this.getContenu().insertContenu();
         String page = "index2.jsp";
         m.setPage(page);
         m.setHash(hm);

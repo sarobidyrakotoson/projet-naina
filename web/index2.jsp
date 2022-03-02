@@ -93,11 +93,11 @@
                                                     <div class="form-group">
                                                         <input type="text" class="email-bt" placeholder="Mot cle" style="width: 200px" name="critere.keyword">
                                                     </div>
-                                                    <div class="send_bt"><a href="#"><button>SEARCH</button></a></div>
+                                                    <div class="send_bt"><a href="#"><button style="background-color: #3B3B3B">SEARCH</button></a></div>
                                                 </form>
                                             </div> 
                                         </div>
-                                        
+
                                     </div>
                                 </div>
                             </div>
@@ -133,12 +133,13 @@
                                                     </div>
                                                     <div class="form-group">
                                                         <input type="hidden" style="width: 400px" name="contenu.fichier">
-                                                        <input type="file" style="width: 400px" name="contenu.fichier1">
+                                                        <input type="file" class="email-bt" style="width: 400px;height: 50Px" name="contenu.fichier1">
                                                     </div>
 
                                                 </div> 
                                             </div>
-                                            <input type="submit" class="send_bt" value="AJOUTER">
+
+                                            <div class="send_bt"><a><input type="submit"  style="background-color: #3B3B3B" value="AJOUTER"></a></div>
                                         </form>
                                     </div>
                                 </div>
@@ -161,39 +162,30 @@
         <!-- our taxis section start -->
         <div id="taxis" class="taxis_section layout_padding">
             <div class="container">
-                <h1 class="our_text">Contenu <span style="color: #f4db31;">Personel</span></h1>
+                <h1 class="our_text"><span style="color: #f4db31;"></span></h1>
                 <div class="taxis_section_2">
-
-
                     <div class="row">
-                        <div class="col-sm-4">
-                            <div class="taxi_main">
-                                <div class="round_1">01</div>
-                                <h2 class="carol_text">CAR 1</h2>
-                                <p class="reader_text">act that a reader will be<br> 
-                                    distracted </p>
-                                <div class="images_2"><a href="#"><img src="images/reunion.jpg" width="100px"></a></div>
-                            </div>
+                        <% for (int i = 0; i < li.size(); i++) {
+                                TypeContenu c = (TypeContenu) li.get(i);
+                        %>
+                        <div class="col-sm-3">
+                            <div >
+                                <form method="post" action="listeC.do">
+                                    <input type="hidden" value="<%=c.getId()%>" name="contenu.typecontenuid">
+                                    <button style="color: white;background-color: black;border-color: black;border-radius: 2px;width: 200px"> <% out.println(c.getNom()); %> </button>
+                                </form></div>
                         </div>
-
-                    </div>
+                        <% }%> 
+                    </div> 
                 </div>
             </div>
         </div>
         <form method="post" action="listeAll.do">
-        <input type="submit" style="color: white;background-color: black;border-color: black;border-radius: 2px;width: 100%" value="ALL">
+            <input type="submit" style="color: white;background-color: black;border-color: black;border-radius: 2px;width: 100%" value="ALL">
         </form>
-         <% for (int i = 0; i < li.size(); i++) {
-                TypeContenu c = (TypeContenu) li.get(i);  
-        %>
-        <div style="margin-left: 30px;color: white;background-color: black;border-color: black;border-radius: 2px;width: 200px">
-        <form method="post" action="listeC.do">
-            <input type="hidden" value="<%=c.getId()%>" name="contenu.typecontenuid">
-            <input type="submit" value="<% out.println(c.getNom()); %>">
-        </form></div>
-            <% }%>    
-       
-           <!-- our taxis section end -->
+
+
+        <!-- our taxis section end -->
         <!-- why ride section start -->
         <div id="booking" class="ride_section layout_padding">
             <div class="container">
@@ -216,6 +208,7 @@
                     <div class="col-sm-8">
                         <h1 class="cabe_text"><% out.println(c.getTitre()); %></h1>
                         <p class="long_text"><% out.println(c.getDescription()); %></p>
+                        <small><% out.println(c.getDatecontenu().toString().replace("-", ".")); %></small>
                         <div class="book_bt"><a href="#"><% out.println(c.getFichier()); %></a></div>
                     </div>
                 </div>
@@ -225,6 +218,7 @@
                     <div class="col-sm-8">
                         <h1 class="cabe_text"><% out.println(c.getTitre()); %></h1>
                         <p class="long_text"><% out.println(c.getDescription()); %></p>
+                        <small><% out.println(c.getDatecontenu().toString().replace("-", ".")); %></small>
                         <div class="book_bt"><a href="#"><% out.println(c.getFichier()); %></a></div>
                     </div>
                     <div class="col-sm-4">
