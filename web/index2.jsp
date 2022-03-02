@@ -21,20 +21,20 @@
         <meta name="description" content="">
         <meta name="author" content="">	
         <!-- bootstrap css -->
-        <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/bootstrap.min.css">
         <!-- style css -->
-        <link rel="stylesheet" type="text/css" href="css/style.css">
+        <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/style.css">
         <!-- Responsive-->
-        <link rel="stylesheet" href="css/responsive.css">
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/css/responsive.css">
         <!-- fevicon -->
-        <link rel="icon" href="images/fevicon.png" type="image/gif" />
+        <link rel="icon" href="${pageContext.request.contextPath}/images/fevicon.png" type="image/gif" />
         <!-- Scrollbar Custom CSS -->
-        <link rel="stylesheet" href="css/jquery.mCustomScrollbar.min.css">
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/css/jquery.mCustomScrollbar.min.css">
         <!-- Tweaks for older IEs-->
         <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
         <!-- owl stylesheets --> 
-        <link rel="stylesheet" href="css/owl.carousel.min.css">
-        <link rel="stylesheet" href="css/owl.theme.default.min.css">
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/css/owl.carousel.min.css">
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/css/owl.theme.default.min.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
 
     </head>
@@ -203,13 +203,13 @@
             <div class="container">
                 <div class="row">
                     <div class="col-sm-4">
-                        <div class="image_3"><img src="images/<% out.println(c.getTypecontenuid()); %>.png"></div>
+                        <div class="image_3"><img src="${pageContext.request.contextPath}/images/<% out.println(c.getTypecontenuid()); %>.png"></div>
                     </div>
                     <div class="col-sm-8">
                         <h1 class="cabe_text"><% out.println(c.getTitre()); %></h1>
                         <p class="long_text"><% out.println(c.getDescription()); %></p>
                         <small><% out.println(c.getDatecontenu().toString().replace("-", ".")); %></small>
-                        <div class="book_bt"><a href="#"><% out.println(c.getFichier()); %></a></div>
+                        <div class="book_bt"><a href="http://localhost:8080/Contenu/fichier/<%=c.getFichier()%>" download><% out.println(c.getFichier()); %></a></div>
                     </div>
                 </div>
             </div><% } %><% if (i % 2 == 0) {%>
@@ -219,10 +219,10 @@
                         <h1 class="cabe_text"><% out.println(c.getTitre()); %></h1>
                         <p class="long_text"><% out.println(c.getDescription()); %></p>
                         <small><% out.println(c.getDatecontenu().toString().replace("-", ".")); %></small>
-                        <div class="book_bt"><a href="#"><% out.println(c.getFichier()); %></a></div>
+                        <div class="book_bt"><a href="http://localhost:8080/Contenu/fichier/<%=c.getFichier()%>"><% out.println(c.getFichier()); %></a></div>
                     </div>
                     <div class="col-sm-4">
-                        <div class="image_3"><img src="images/<% out.println(c.getTypecontenuid()); %>.png"></div>
+                        <div class="image_3"><img src="${pageContext.request.contextPath}/images/<% out.println(c.getTypecontenuid()); %>.png"></div>
                     </div>
                 </div>
             </div><% } %>
@@ -238,16 +238,16 @@
         </div>
 
         <!-- Javascript files-->
-        <script src="js/jquery.min.js"></script>
-        <script src="js/popper.min.js"></script>
-        <script src="js/bootstrap.bundle.min.js"></script>
-        <script src="js/jquery-3.0.0.min.js"></script>
-        <script src="js/plugin.js"></script>
+        <script src="${pageContext.request.contextPath}/js/jquery.min.js"></script>
+        <script src="${pageContext.request.contextPath}/js/popper.min.js"></script>
+        <script src="${pageContext.request.contextPath}/js/bootstrap.bundle.min.js"></script>
+        <script src="${pageContext.request.contextPath}/js/jquery-3.0.0.min.js"></script>
+        <script src="${pageContext.request.contextPath}/js/plugin.js"></script>
         <!-- sidebar -->
-        <script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
-        <script src="js/custom.js"></script>
+        <script src="${pageContext.request.contextPath}/js/jquery.mCustomScrollbar.concat.min.js"></script>
+        <script src="${pageContext.request.contextPath}/js/custom.js"></script>
         <!-- javascript --> 
-        <script src="js/owl.carousel.js"></script>
+        <script src="${pageContext.request.contextPath}/js/owl.carousel.js"></script>
         <script src="https:cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
         <script>
                                     $(document).ready(function () {
