@@ -9,7 +9,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="viewport" content="initial-scale=1, maximum-scale=1">
         <!-- site metas -->
-        <title>ULOAX</title>
+        <title>CONTENU</title>
         <meta name="keywords" content="">
         <meta name="description" content="">
         <meta name="author" content="">	
@@ -33,7 +33,7 @@
     </head>
     <body>
         <!--header section start -->
-        <div id="index.html" class="header_section">
+        <div id="index.jsp" class="header_section">
             <div class="container">
                 <div class="row">
                     <div class="col-sm-6 col-lg-3">
