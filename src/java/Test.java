@@ -1,4 +1,6 @@
 
+import java.sql.Date;
+import java.time.LocalDate;
 import java.util.List;
 import modele.Connexion;
 import modele.Contenu;
@@ -20,9 +22,10 @@ public class Test {
      * @param args the command line arguments
      */
     public static void main(String[] args) throws Exception {
-        DBTable d = new DBTable();
-            //System.out.println(d.id(Connexion.getConnection(), "var"));
         
+        Contenu c = new Contenu();
+        
+        List l = c.recherche(un, Date.valueOf(LocalDate.now()), "reunion");
     }
     
 }

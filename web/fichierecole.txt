@@ -1,0 +1,27 @@
+donnee de test 
+ny niveau feno daholo(maternelle hatram 3eme)
+matiere feno (histo,.....)
+etudiant: formulaire,ok
+
+note: formulaire ok
+
+anneescolaire: formulaireok
+
+trimestre: formulaireok
+
+coefficient:: formulaireokok
+
+matiere: liste
+
+ecolage: formulaire ajout, liste (non paye,retard,non paye en retard)ok
+
+
+insert ecolage multiple (mois debut - mois fin)ok
+
+niveau liste
+
+fonction 
+gettrimestre en cours 
+
+exist anneescolaire
+ajoutena colonne nom ny anneescolaire

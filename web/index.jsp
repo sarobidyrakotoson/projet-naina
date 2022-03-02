@@ -37,7 +37,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-sm-6 col-lg-3">
-                        <div class="logo"><a href="index.html"><img src="images/logo.png"></a></div>
+                        <div class="logo"></div>
                     </div>
                     <div class="col-sm-6 col-lg-9">
                         <div class="menu_text">
@@ -67,22 +67,22 @@
                                 <div class="col-md-6">
                                     <h1 class="booking_text">Connexion</h1>
                                     <div class="contact_bg">
-                                        <form action="listeContenu.do">
+                                        <form action="${pageContext.request.contextPath}/login.do" method="post">
                                         <div class="input_main">
                                             <div class="container">
                                                 <h2 class="request_text"></h2>
                                                 
                                                     <div class="form-group">
-                                                        <input type="email" class="email-bt" placeholder="Email" style="width: 400px" name="date2">
+                                                        <input type="email" class="email-bt" placeholder="Email" style="width: 400px" name="utilisateur.email">
                                                     </div>
                                                    
                                                     <div class="form-group">
-                                                        <input type="password" class="email-bt" placeholder="Mot de passe" style="width: 400px" name="type">
+                                                        <input type="password" class="email-bt" placeholder="Mot de passe" style="width: 400px" name="utilisateur.mdp">
                                                     </div>
                                                 
                                             </div> 
                                         </div>
-                                        <div class="send_bt"><a><button>SE CONNECTER</button></a></div></form>
+                                        <div class="send_bt"><a><button style="background-color: grey">SE CONNECTER</button></a></div></form>
                                     </div>
                                 </div>
                             </div>

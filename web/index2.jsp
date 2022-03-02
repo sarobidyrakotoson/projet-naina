@@ -1,5 +1,10 @@
+<%@page import="modele.TypeContenu"%>
 <%@page import="modele.Contenu"%>
 <%@page import="java.util.List"%>
+<% List liste = (List) request.getAttribute("liste");
+    List l = (List) liste.get(0);
+    List li = (List) liste.get(1);
+%>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -39,7 +44,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-sm-6 col-lg-3">
-                        <div class="logo"><a href="index.html"><img src="images/logo.png"></a></div>
+                        <div class="logo"></div>
                     </div>
                     <div class="col-sm-6 col-lg-9">
                         <div class="menu_text">
@@ -79,19 +84,20 @@
                                         <div class="input_main">
                                             <div class="container">
                                                 <h2 class="request_text"></h2>
-                                                <form action="/action_page.php">
+                                                <form action="${pageContext.request.contextPath}/recherche.do">
                                                     <div class="form-group">
-                                                        <input type="date" class="email-bt" style="width: 200px" name="date1"><br> 
-                                                        <input type="date" class="email-bt" style="width: 200px" name="date2">
+                                                        <input type="date" class="email-bt" style="width: 200px" name="critere.un"><br> 
+                                                        <input type="date" class="email-bt" style="width: 200px" name="critere.deux">
                                                     </div>
 
                                                     <div class="form-group">
-                                                        <input type="text" class="email-bt" placeholder="Type" style="width: 200px" name="type">
+                                                        <input type="text" class="email-bt" placeholder="Mot cle" style="width: 200px" name="critere.keyword">
                                                     </div>
+                                                    <div class="send_bt"><a href="#"><button>SEARCH</button></a></div>
                                                 </form>
                                             </div> 
                                         </div>
-                                        <div class="send_bt"><a href="#">SEARCH</a></div>
+                                        
                                     </div>
                                 </div>
                             </div>
@@ -105,16 +111,18 @@
                                 <div class="col-md-6">
                                     <h1 class="booking_text">Ajouter un nouveau contenu</h1>
                                     <div class="contact_bg">
-                                        <form action="insertContenu.do" method="get" enctype="multipart/form-data">
+                                        <form action="${pageContext.request.contextPath}/insertContenu.do" method="post" enctype="multipart/form-data">
                                             <div class="input_main">
                                                 <div class="container">
                                                     <h2 class="request_text"></h2>
 
                                                     <div class="form-group">
-                                                        <input type="radio" style="width: 30px" value="1" name="contenu.typecontenuid">Annonce
-                                                        <input type="radio" style="width: 30px" value="2" name="contenu.typecontenuid">Note interne
-                                                        <input type="radio" style="width: 30px" value="3" name="contenu.typecontenuid">Rapport de mission
-                                                        <input type="radio" style="width: 30px" value="4" name="contenu.typecontenuid">Reunion
+                                                        <% for (int i = 0; i < li.size(); i++) {
+                                                                TypeContenu c = (TypeContenu) li.get(i);
+                                                        %>
+                                                        <input type="radio" style="width: 30px" value="<%=(c.getId())%>" name="contenu.typecontenuid"><% out.println(c.getNom()); %>
+                                                        <% }%>
+
                                                     </div>
 
                                                     <div class="form-group">
@@ -124,13 +132,13 @@
                                                         <input type="text" class="email-bt" placeholder="Description" style="width: 400px"  name="contenu.description">
                                                     </div>
                                                     <div class="form-group">
-                                                        <input type="hidden" style="width: 400px" name="contenu.fichier1">
-                                                        <input type="file" style="width: 400px" name="contenu.fichier">
+                                                        <input type="hidden" style="width: 400px" name="contenu.fichier">
+                                                        <input type="file" style="width: 400px" name="contenu.fichier1">
                                                     </div>
 
                                                 </div> 
                                             </div>
-                                            <div class="send_bt"><a href="#"><button>AJOUTER</button></a></div>
+                                            <input type="submit" class="send_bt" value="AJOUTER">
                                         </form>
                                     </div>
                                 </div>
@@ -155,6 +163,8 @@
             <div class="container">
                 <h1 class="our_text">Contenu <span style="color: #f4db31;">Personel</span></h1>
                 <div class="taxis_section_2">
+
+
                     <div class="row">
                         <div class="col-sm-4">
                             <div class="taxi_main">
@@ -165,29 +175,25 @@
                                 <div class="images_2"><a href="#"><img src="images/reunion.jpg" width="100px"></a></div>
                             </div>
                         </div>
-                        <div class="col-sm-4">
-                            <div class="taxi_main">
-                                <div class="round_1">02</div>
-                                <h2 class="carol_text">CAR 2</h2>
-                                <p class="reader_text">act that a reader will be<br> 
-                                    distracted </p>
-                                <div class="images_2"><img src="images/note.png" width="100px"></a></div>
-                            </div>
-                        </div>
-                        <div class="col-sm-4">
-                            <div class="taxi_main">
-                                <div class="round_1">03</div>
-                                <h2 class="carol_text">CAR 3</h2>
-                                <p class="reader_text">act that a reader will be<br> 
-                                    distracted </p>
-                                <div class="images_2"><img src="images/rapport.png" width="150px"></a></div>
-                            </div>
-                        </div>
+
                     </div>
                 </div>
             </div>
         </div>
-        <!-- our taxis section end -->
+        <form method="post" action="listeAll.do">
+        <input type="submit" style="color: white;background-color: black;border-color: black;border-radius: 2px;width: 100%" value="ALL">
+        </form>
+         <% for (int i = 0; i < li.size(); i++) {
+                TypeContenu c = (TypeContenu) li.get(i);  
+        %>
+        <div style="margin-left: 30px;color: white;background-color: black;border-color: black;border-radius: 2px;width: 200px">
+        <form method="post" action="listeC.do">
+            <input type="hidden" value="<%=c.getId()%>" name="contenu.typecontenuid">
+            <input type="submit" value="<% out.println(c.getNom()); %>">
+        </form></div>
+            <% }%>    
+       
+           <!-- our taxis section end -->
         <!-- why ride section start -->
         <div id="booking" class="ride_section layout_padding">
             <div class="container">
@@ -197,7 +203,7 @@
             </div>
         </div>
         <div class="ride_section_2 layout_padding">
-            <% List l = (List) request.getAttribute("liste"); %>
+
             <% for (int i = 0; i < l.size(); i++) {
                     Contenu c = (Contenu) l.get(i);
             %>

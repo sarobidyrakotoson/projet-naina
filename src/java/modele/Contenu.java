@@ -73,7 +73,6 @@ public class Contenu extends DBTable{
     }
     
     public List contenu() throws Exception{
-        
         List l = new ArrayList();
         DBTable[] db = this.find(this, Connexion.getConnection());
         for(int i = 0;i<db.length;i++){
@@ -85,5 +84,15 @@ public class Contenu extends DBTable{
     
     public void insertContenu() throws Exception{
         this.insertInto(Connexion.getConnection());
+    }
+    
+    
+    public List recherche(Date un,Date deux,String keyword) throws Exception{
+        List l = new ArrayList();
+        DBTable[] db = this.findAvecFinal(this, " where titre like '%"+keyword+"%' or description like '%"+keyword+"%' and datecontenu between '"+un+"' and '"+deux+"'", Connexion.getConnection());
+        for(int i = 0;i<db.length;i++){
+            l.add((Contenu)db[i]);
+        }
+        return l;
     }
 }

@@ -8,12 +8,14 @@ package controller;
 import annotation.Annotation;
 import java.sql.Date;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import modele.Connexion;
 import modele.Contenu;
 import modele.ModeleView;
+import modele.TypeContenu;
 
 /**
  *
@@ -32,13 +34,19 @@ public class ContenuController {
     @Annotation(nameClass = "listeContenu")
     public ModeleView liste(HttpServletRequest hr) throws Exception{
         ModeleView m = new ModeleView();
-        Contenu c = new Contenu(); 
+        Contenu c = new Contenu();
+        List li = c.contenu();
+        TypeContenu tc = new TypeContenu();
+        List list = tc.typecontenu();
+        List l = new ArrayList();
+        l.add(li);
+        l.add(list);
+        HashMap<String, Object> hm = new HashMap<String, Object>();
+        hm.put("liste", l);
+       
         String page = "index2.jsp";
-        List l = c.contenu();
-        HashMap<String, Object> h = new HashMap<String, Object>();
-        h.put("liste", l);
         m.setPage(page);
-        m.setHash(h);
+        m.setHash(hm);
         return m;
     }
     
@@ -46,21 +54,57 @@ public class ContenuController {
     public ModeleView insert(HttpServletRequest hr) throws Exception{
         ModeleView m = new ModeleView();
         Contenu c = new Contenu();
-        List l = c.contenu();
-        HashMap<String, Object> h = new HashMap<String, Object>();
-        h.put("liste", l);
-        Date d = Date.valueOf(LocalDate.now());///idddd
+        List li = c.contenu();
+        TypeContenu tc = new TypeContenu();
+        List list = tc.typecontenu();
+        List l = new ArrayList();
+        l.add(li);
+        l.add(list);
+        HashMap<String, Object> hm = new HashMap<String, Object>();
+        hm.put("liste", l);
+        Date d = Date.valueOf(LocalDate.now());
         this.getContenu().setDatecontenu(d);
         this.getContenu().setId(c.id(Connexion.getConnection()));
-        c = this.getContenu();
-        c.insertContenu();
-        System.out.println(this.getContenu().getDescription());
-        System.out.println(this.getContenu().getFichier());
-        System.out.println(this.getContenu().getTitre());
-        System.out.println(this.getContenu().getTypecontenuid());
+        System.out.println(this.getContenu().getId());
+        this.getContenu().insertContenu();
         String page = "index2.jsp";
         m.setPage(page);
-        m.setHash(h);
+        m.setHash(hm);
+        return m;
+    }
+    
+    @Annotation(nameClass="listeC")
+    public ModeleView listec(HttpServletRequest hr) throws Exception{
+        ModeleView m = new ModeleView();
+        List li = this.getContenu().contenu();
+        TypeContenu tc = new TypeContenu();
+        List list = tc.typecontenu();
+        List l = new ArrayList();
+        l.add(li);
+        l.add(list);
+        HashMap<String, Object> hm = new HashMap<String, Object>();
+        hm.put("liste", l);
+        String page = "index2.jsp";
+        m.setPage(page);
+        m.setHash(hm);
+        return m;
+    }
+    
+    @Annotation(nameClass="listeAll")
+    public ModeleView listeAll(HttpServletRequest hr) throws Exception{
+        ModeleView m = new ModeleView();
+        Contenu c= new Contenu();
+        List li = c.contenu();
+        TypeContenu tc = new TypeContenu();
+        List list = tc.typecontenu();
+        List l = new ArrayList();
+        l.add(li);
+        l.add(list);
+        HashMap<String, Object> hm = new HashMap<String, Object>();
+        hm.put("liste", l);
+        String page = "index2.jsp";
+        m.setPage(page);
+        m.setHash(hm);
         return m;
     }
 }
