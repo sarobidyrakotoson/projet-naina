@@ -44,7 +44,7 @@ public class ContenuController {
         HashMap<String, Object> hm = new HashMap<String, Object>();
         hm.put("liste", l);
        
-        String page = "index2.jsp";
+        String page = "/index2.jsp";
         m.setPage(page);
         m.setHash(hm);
         return m;
@@ -67,7 +67,7 @@ public class ContenuController {
         l.add(list);
         HashMap<String, Object> hm = new HashMap<String, Object>();
         hm.put("liste", l);
-        String page = "index2.jsp";
+        String page = "/index2.jsp";
         m.setPage(page);
         m.setHash(hm);
         return m;
@@ -84,7 +84,7 @@ public class ContenuController {
         l.add(list);
         HashMap<String, Object> hm = new HashMap<String, Object>();
         hm.put("liste", l);
-        String page = "index2.jsp";
+        String page = "/index2.jsp";
         m.setPage(page);
         m.setHash(hm);
         return m;
@@ -102,7 +102,7 @@ public class ContenuController {
         l.add(list);
         HashMap<String, Object> hm = new HashMap<String, Object>();
         hm.put("liste", l);
-        String page = "index2.jsp";
+        String page = "/index2.jsp";
         m.setPage(page);
         m.setHash(hm);
         return m;
